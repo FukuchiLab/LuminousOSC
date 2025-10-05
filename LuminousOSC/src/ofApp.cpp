@@ -1,25 +1,25 @@
 #include "ofApp.h"
 
-// ƒƒ‚F
-// MacŠÂ‹«‚Å‚ÍAƒV[ƒN‘€ì‚ª‚¨‚©‚µ‚¢B
-// video.setFrame() ‚ÉƒoƒO‚ª‚ ‚é‚Á‚Û‚¢B
+// ãƒ¡ãƒ¢ï¼š
+// Macç’°å¢ƒã§ã¯ã€ã‚·ãƒ¼ã‚¯æ“ä½œãŒãŠã‹ã—ã„ã€‚
+// video.setFrame() ã«ãƒã‚°ãŒã‚ã‚‹ã£ã½ã„ã€‚
 
 
 //--------------------------------------------------------------
-// ƒAƒvƒŠ‚ÌŠJnˆ—
+// ã‚¢ãƒ—ãƒªã®é–‹å§‹å‡¦ç†
 void ofApp::setup(){
 
-	// Mac‚Ìê‡AdataƒtƒHƒ‹ƒ_‚ÌƒpƒX‚ğ•ÏX
+	// Macã®å ´åˆã€dataãƒ•ã‚©ãƒ«ãƒ€ã®ãƒ‘ã‚¹ã‚’å¤‰æ›´
 #ifdef __APPLE__
     ofSetDataPathRoot("../Resources/data/");
 #endif
         
-	// •\¦‰æ‘œ‚Ì‰Šú‰»
-	// Mat‚©‚ç‚Ì•ÏŠ·‚É©“®“I‚É‰Šú‰»EƒTƒCƒY•ÏX‚Í‚³‚ê‚é‚ªA
-	// ƒrƒfƒIˆ—‚ªŠJn‚³‚ê‚é‘O‚É•\¦‚ªs‚í‚ê‚é‚Ì‚Å–‘O‚É‰Šú‰»‚·‚é
+	// è¡¨ç¤ºç”»åƒã®åˆæœŸåŒ–
+	// Matã‹ã‚‰ã®å¤‰æ›æ™‚ã«è‡ªå‹•çš„ã«åˆæœŸåŒ–ãƒ»ã‚µã‚¤ã‚ºå¤‰æ›´ã¯ã•ã‚Œã‚‹ãŒã€
+	// ãƒ“ãƒ‡ã‚ªå‡¦ç†ãŒé–‹å§‹ã•ã‚Œã‚‹å‰ã«è¡¨ç¤ºãŒè¡Œã‚ã‚Œã‚‹ã®ã§äº‹å‰ã«åˆæœŸåŒ–ã™ã‚‹
 	view_img.allocate(640, 480, OF_IMAGE_COLOR);
 
-	// GUI‚ÌãŒÀE‰ºŒÀ‚âAƒgƒ‰ƒbƒLƒ“ƒO‚Ì“à•”ƒpƒ‰ƒ[ƒ^‚È‚Ç‚Íadvanced.xml‚©‚ç“Ç‚İ‚ŞB‚È‚¢‚È‚çì¬B
+	// GUIã®ä¸Šé™ãƒ»ä¸‹é™ã‚„ã€ãƒˆãƒ©ãƒƒã‚­ãƒ³ã‚°ã®å†…éƒ¨ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãªã©ã¯advanced.xmlã‹ã‚‰èª­ã¿è¾¼ã‚€ã€‚ãªã„ãªã‚‰ä½œæˆã€‚
 	if (!adv_set.load("advanced.xml")) {
 		adv_set.setValue("MinArea_min", DEFAULT_MIN_AREA_MIN);
 		adv_set.setValue("MinArea_max", DEFAULT_MIN_AREA_MAX);
@@ -42,7 +42,7 @@ void ofApp::setup(){
 
 
 #ifdef TARGET_WIN32
-	// ƒRƒ“ƒ\[ƒ‹•\¦
+	// ã‚³ãƒ³ã‚½ãƒ¼ãƒ«è¡¨ç¤º
 	if (isShowConsole) {
 		AllocConsole();
 		FILE* fp;
@@ -51,7 +51,7 @@ void ofApp::setup(){
 	}
 #endif
 
-	// ƒŠƒXƒi[‚ÌƒZƒbƒgƒAƒbƒv
+	// ãƒªã‚¹ãƒŠãƒ¼ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
 	min_area.addListener(this, &ofApp::minAreaChanged);
 	max_area.addListener(this, &ofApp::maxAreaChanged);
 	max_points.addListener(this, &ofApp::maxPointsChanged);
@@ -68,9 +68,9 @@ void ofApp::setup(){
 	load_video_file_button.addListener(this, &ofApp::loadFileButtonPressed);
 	switch_to_camera_button.addListener(this, &ofApp::switchToCameraButtonPressed);
 
-	// ƒtƒHƒ“ƒg‚Ìƒ[ƒh
-	// gui_font_small.load(GUI_FONT_PATH, 9); // ƒV[ƒNƒo[‚Ìà–¾•¶—p
-	gui_font_large.load(GUI_FONT_PATH, 20); // No Tracking •\¦—p
+	// ãƒ•ã‚©ãƒ³ãƒˆã®ãƒ­ãƒ¼ãƒ‰
+	// gui_font_small.load(GUI_FONT_PATH, 9); // ã‚·ãƒ¼ã‚¯ãƒãƒ¼ã®èª¬æ˜æ–‡ç”¨
+	gui_font_large.load(GUI_FONT_PATH, 20); // No Tracking è¡¨ç¤ºç”¨
 
 	setCameraMode();
 	setupMainUI();
@@ -78,9 +78,9 @@ void ofApp::setup(){
 
 
 //--------------------------------------------------------------
-// ƒƒCƒ“‚ÌUI‚Ìì¬ˆ—
+// ãƒ¡ã‚¤ãƒ³ã®UIã®ä½œæˆå‡¦ç†
 void ofApp::setupMainUI() {
-	bMainUIInitializing = true; // ‚±‚Ìƒtƒ‰ƒO‚É‚æ‚Á‚ÄAGUI‰Šú‰»‚ÉƒR[ƒ‹ƒoƒbƒNŠÖ”‚ªÀs‚³‚ê‚é‚Ì‚ğ–h‚®
+	bMainUIInitializing = true; // ã“ã®ãƒ•ãƒ©ã‚°ã«ã‚ˆã£ã¦ã€GUIåˆæœŸåŒ–æ™‚ã«ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ãŒå®Ÿè¡Œã•ã‚Œã‚‹ã®ã‚’é˜²ã
 
 	gui.setup();
 	gui.setPosition(660, 20);
@@ -102,7 +102,7 @@ void ofApp::setupMainUI() {
 		gui.add(cam_width.set(GUI_LABEL_CAM_WIDTH, "640"));
 		gui.add(cam_height.set(GUI_LABEL_CAM_HEIGHT, "480"));
 		gui.add(cam_fps.set(GUI_LABEL_CAM_FPS, "30"));
-		// ƒJƒƒ‰İ’è‚ÌŒÄ‚Ño‚µƒ{ƒ^ƒ“‚ÍŒ»İ‚ÍWindows‚Ì‚İ‘Î‰
+		// ã‚«ãƒ¡ãƒ©è¨­å®šã®å‘¼ã³å‡ºã—ãƒœã‚¿ãƒ³ã¯ç¾åœ¨ã¯Windowsã®ã¿å¯¾å¿œ
 #ifdef TARGET_WIN32
 		gui.add(cam_settings_button.setup(GUI_LABEL_CAM_SETTINGS_BUTTON));	
 #endif
@@ -112,10 +112,10 @@ void ofApp::setupMainUI() {
 		gui.add(switch_to_camera_button.setup(GUI_LABEL_SWITCH_TO_CAMERA_BUTTON));
 	}
 
-	// İ’èƒtƒ@ƒCƒ‹‚©‚çGUI‚Ìİ’è’l‚ğƒ[ƒh
+	// è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰GUIã®è¨­å®šå€¤ã‚’ãƒ­ãƒ¼ãƒ‰
 	gui.loadFromFile("settings.xml");
 
-	// ‘O‰ñ’l‚Ì‰Šú‰»
+	// å‰å›å€¤ã®åˆæœŸåŒ–
 	if (isCameraMode()) {
 		prev_cam_id = cam_id.get();
 		prev_cam_width = cam_width.get();
@@ -123,7 +123,7 @@ void ofApp::setupMainUI() {
 		prev_cam_fps = cam_fps.get();
 	}
 
-	// XVƒŠƒNƒGƒXƒgƒtƒ‰ƒO
+	// æ›´æ–°ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ•ãƒ©ã‚°
 	bRequestChangeOSC = true;
 	bRequestChangeCamera = true;
 	bRequestChangeMaxPoints = true;
@@ -131,13 +131,13 @@ void ofApp::setupMainUI() {
 }
 
 //--------------------------------------------------------------
-// ƒƒCƒ“‚ÌGUI‚Ì‰ğ•úˆ—
+// ãƒ¡ã‚¤ãƒ³ã®GUIã®è§£æ”¾å‡¦ç†
 void ofApp::releaseMainUI() {
 	gui.clear();
 }
 
 //--------------------------------------------------------------
-// ƒrƒfƒI‘€ìUI‚Ìì¬ˆ—
+// ãƒ“ãƒ‡ã‚ªæ“ä½œUIã®ä½œæˆå‡¦ç†
 void ofApp::setupVideoUI() {
 
 	MenuItem* play = new MenuItem("ui/button_play.png", 65, ofGetHeight() - 50, "PLAY");
@@ -151,14 +151,14 @@ void ofApp::setupVideoUI() {
 	int slider_width = max(500, ofGetWidth() - 300);
 	range_slider = new RangeSliderItem(250 + slider_width / 2.0, ofGetHeight() - 50, slider_width, 50, "RANGE_SLIDER");
 
-	// ‘O‰ñ‚Ìƒ‹[ƒv”ÍˆÍ‚ğ•œŒ³
+	// å‰å›ã®ãƒ«ãƒ¼ãƒ—ç¯„å›²ã‚’å¾©å…ƒ
 	range_slider->setSelectedRange(prev_range.x, prev_range.y);
 }
 
 //--------------------------------------------------------------
-// ƒrƒfƒI‘€ìUI‚Ì‰ğ•úˆ—
+// ãƒ“ãƒ‡ã‚ªæ“ä½œUIã®è§£æ”¾å‡¦ç†
 void ofApp::releaseVideoUI() {
-	// ‰ğ•ú‘O‚Éƒ‹[ƒv”ÍˆÍİ’è‚ğŠo‚¦‚Ä‚¨‚­
+	// è§£æ”¾å‰ã«ãƒ«ãƒ¼ãƒ—ç¯„å›²è¨­å®šã‚’è¦šãˆã¦ãŠã
 	prev_range = range_slider->getSelectedRange();
 	
 	for (auto& item : ui_items) {
@@ -171,14 +171,14 @@ void ofApp::releaseVideoUI() {
 }
 
 //--------------------------------------------------------------
-// –ˆƒtƒŒ[ƒ€‚ÌXVˆ—
+// æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ›´æ–°å‡¦ç†
 void ofApp::update() {
 	bMainUIInitializing = false;
 
-	// ‚¢‚­‚Â‚©‚Ìƒpƒ‰ƒ[ƒ^‚Ì•ÏX‚ÍAƒƒjƒ…[‚ÌƒR[ƒ‹ƒoƒbƒNŠÖ”‚Å‚â‚é‚ÆÕ“Ë‚ª‹N‚±‚é‚½‚ßA
-	// ƒR[ƒ‹ƒoƒbƒNŠÖ”‚Å‚Í—vXVƒtƒ‰ƒO‚¾‚¯—§‚Ä‚ÄA‚±‚±‚ÅXVˆ—‚ğs‚¤B
+	// ã„ãã¤ã‹ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¤‰æ›´ã¯ã€ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã§ã‚„ã‚‹ã¨è¡çªãŒèµ·ã“ã‚‹ãŸã‚ã€
+	// ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã§ã¯è¦æ›´æ–°ãƒ•ãƒ©ã‚°ã ã‘ç«‹ã¦ã¦ã€ã“ã“ã§æ›´æ–°å‡¦ç†ã‚’è¡Œã†ã€‚
 
-	// ƒrƒfƒIƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+	// ãƒ“ãƒ‡ã‚ªãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	if (bRequestChangeVideoFile) {
 		if (video.load(video_file_path)) {
 			video.play();
@@ -187,7 +187,7 @@ void ofApp::update() {
 			loop_end_frame = video.getTotalNumFrames() - 1;
 			view_img.clear();
 
-			// ƒtƒ@ƒCƒ‹“Ç‚İ‚İ¬Œ÷“_‚ÅƒJƒƒ‰ƒ‚[ƒh‚¾‚Á‚½‚ç
+			// ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿æˆåŠŸæ™‚ç‚¹ã§ã‚«ãƒ¡ãƒ©ãƒ¢ãƒ¼ãƒ‰ã ã£ãŸã‚‰
 			if (isCameraMode()) {
 				grabber.close();
 				releaseMainUI();
@@ -202,7 +202,7 @@ void ofApp::update() {
 		bRequestChangeVideoFile = false;
 	}
 
-	// ƒJƒƒ‰ƒ‚[ƒh‚Ö‚ÌØ‚è‘Ö‚¦
+	// ã‚«ãƒ¡ãƒ©ãƒ¢ãƒ¼ãƒ‰ã¸ã®åˆ‡ã‚Šæ›¿ãˆ
 	if (bRequestSwitchToCamera) {
 		view_img.clear();
 		video.close();
@@ -214,13 +214,13 @@ void ofApp::update() {
 		bRequestSwitchToCamera = false;
 	}
 
-	// OSC‚Ìƒpƒ‰ƒ[ƒ^•ÏX
+	// OSCã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¤‰æ›´
 	if (bRequestChangeOSC) {
 		sender.clear();
 		sender.setup(osc_ip_address.get(), ofToInt(osc_port.get()));
 		bRequestChangeOSC = false;
 	}
-	// ƒJƒƒ‰‚Ìƒpƒ‰ƒ[ƒ^•ÏX
+	// ã‚«ãƒ¡ãƒ©ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¤‰æ›´
 	if (bRequestChangeCamera && isCameraMode()) {
 		grabber.close();
 		grabber.setDeviceID(ofToInt(cam_id));
@@ -228,12 +228,12 @@ void ofApp::update() {
 		grabber.setDesiredFrameRate(ofToInt(cam_fps));
 		bRequestChangeCamera = false;
 	}
-	// ‘—M‚·‚é“_‚ÌÅ‘å”‚Ì•ÏX
+	// é€ä¿¡ã™ã‚‹ç‚¹ã®æœ€å¤§æ•°ã®å¤‰æ›´
 	if (bRequestChangeMaxPoints) {
 		tracker.setMaxPoints(max_points.get());
 		bRequestChangeMaxPoints = false;
 	}
-	// ƒgƒ‰ƒbƒLƒ“ƒO‚Ì—L–³‚Ì•ÏX
+	// ãƒˆãƒ©ãƒƒã‚­ãƒ³ã‚°ã®æœ‰ç„¡ã®å¤‰æ›´
 	if (bRequestChangeUseTracking) {
 		if (use_tracking.get()) {
 			tracker.enable();
@@ -246,7 +246,7 @@ void ofApp::update() {
 	tracker.setNearDistance(dist_matching.get());
 
 
-	// GUI‚ÌˆÊ’u’²®
+	// GUIã®ä½ç½®èª¿æ•´
 	glm::vec3 guipos = gui.getPosition();
 	if (guipos.x < 0) gui.setPosition(10, guipos.y);
 	if (guipos.y < 0) gui.setPosition(guipos.x, 10);
@@ -254,22 +254,22 @@ void ofApp::update() {
 	if (guipos.y > ofGetWindowHeight()) gui.setPosition(guipos.x, ofGetWindowHeight() - 50);
 
 
-	// ˆÈ~‚Ìˆ—‚ğ‚µ‚È‚¢”»’f
+	// ä»¥é™ã®å‡¦ç†ã‚’ã—ãªã„åˆ¤æ–­
 	if (isVideoFileMode() && !video.isLoaded()) return;
 	if (isCameraMode() && !grabber.isInitialized()) return;
 
 
-	// ƒrƒfƒIƒtƒ@ƒCƒ‹ƒ‚[ƒh‚ÌÄ¶§Œä
+	// ãƒ“ãƒ‡ã‚ªãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ¼ãƒ‰ã®å†ç”Ÿåˆ¶å¾¡
 	if (isVideoFileMode()) {
-		// ƒXƒ‰ƒCƒ_[§Œä
+		// ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼åˆ¶å¾¡
 		range_slider->setPlayhead(video.getCurrentFrame() / (float)video.getTotalNumFrames());
 
-		// ƒ‹[ƒvÄ¶§Œä
+		// ãƒ«ãƒ¼ãƒ—å†ç”Ÿåˆ¶å¾¡
 		if (video.getCurrentFrame() < loop_start_frame) video.setFrame(loop_start_frame + 1);
 		if (video.getCurrentFrame() > loop_end_frame) video.setFrame(loop_start_frame + 1);
 	}
 
-	// ƒLƒƒƒvƒ`ƒƒˆ—
+	// ã‚­ãƒ£ãƒ—ãƒãƒ£å‡¦ç†
 	cv::Mat frame;
 	if (isVideoFileMode()) {
 		video.update();
@@ -283,7 +283,7 @@ void ofApp::update() {
 		}
 	}
 
-	// ‰æ‘œˆ—iƒOƒŒƒCƒXƒP[ƒ‹‰»E“ñ’l‰»Eƒ‰ƒxƒŠƒ“ƒOEŒ‹‰Ê—p‚ÉƒOƒŒƒC¨ƒJƒ‰[•ÏŠ·j
+	// ç”»åƒå‡¦ç†ï¼ˆã‚°ãƒ¬ã‚¤ã‚¹ã‚±ãƒ¼ãƒ«åŒ–ãƒ»äºŒå€¤åŒ–ãƒ»ãƒ©ãƒ™ãƒªãƒ³ã‚°ãƒ»çµæœç”¨ã«ã‚°ãƒ¬ã‚¤â†’ã‚«ãƒ©ãƒ¼å¤‰æ›ï¼‰
 	cv::cvtColor(frame, gray, CV_RGB2GRAY);
 	cv::threshold(gray, binary, threshold.get(), 255, cv::THRESH_BINARY);
 	cv::Mat stats, centroids;
@@ -291,11 +291,11 @@ void ofApp::update() {
 	cv::cvtColor(binary, binary, CV_GRAY2RGB);
 	cv::Mat result = show_input.get() ? frame : binary;
 
-	// ƒ‰ƒxƒ‹ƒf[ƒ^‚©‚çŒó•â“_‚ğæ“¾i¦ƒ‰ƒxƒ‹’l‚Í0‚ª”wŒij
-	vector<cv::Point> candidates;	// Œó•â“_ƒŠƒXƒg
+	// ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰å€™è£œç‚¹ã‚’å–å¾—ï¼ˆâ€»ãƒ©ãƒ™ãƒ«å€¤ã¯0ãŒèƒŒæ™¯ï¼‰
+	vector<cv::Point> candidates;	// å€™è£œç‚¹ãƒªã‚¹ãƒˆ
 	for (int i = 1; i < n_label; i++) {
 
-		// –ÊÏ‚ÆƒoƒEƒ“ƒfƒBƒ“ƒOƒ{ƒbƒNƒX‚Ìî•ñ
+		// é¢ç©ã¨ãƒã‚¦ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ãƒœãƒƒã‚¯ã‚¹ã®æƒ…å ±
 		int* param = stats.ptr<int>(i);
 		int area = param[cv::ConnectedComponentsTypes::CC_STAT_AREA];
 		int x = param[cv::ConnectedComponentsTypes::CC_STAT_LEFT];
@@ -303,30 +303,30 @@ void ofApp::update() {
 		int height = param[cv::ConnectedComponentsTypes::CC_STAT_HEIGHT];
 		int width = param[cv::ConnectedComponentsTypes::CC_STAT_WIDTH];
 
-		// dSÀ•W‚Ìæ“¾
+		// é‡å¿ƒåº§æ¨™ã®å–å¾—
 		double* param_c = centroids.ptr<double>(i);
 		int cx = static_cast<int>(param_c[0]);
 		int cy = static_cast<int>(param_c[1]);
 
-		// ƒTƒCƒY‚ª”ÍˆÍ“à‚Å‚ ‚ê‚ÎŒó•â“_‚Æ‚·‚é
+		// ã‚µã‚¤ã‚ºãŒç¯„å›²å†…ã§ã‚ã‚Œã°å€™è£œç‚¹ã¨ã™ã‚‹
 		if (min_area.get() <= area && area <= max_area.get()) {
 
-			// Œó•â“_ƒŠƒXƒg‚Ö‚Ì’Ç‰Á
+			// å€™è£œç‚¹ãƒªã‚¹ãƒˆã¸ã®è¿½åŠ 
 			candidates.push_back(cv::Point(cx, cy));
 
-			// Œó•â“_‚Ì•\¦
+			// å€™è£œç‚¹ã®è¡¨ç¤º
 			cv::rectangle(result, cv::Rect(x, y, width, height), cv::Scalar(255, 255, 0), 1);
 			cv::circle(result, cv::Point(cx, cy), 3, cv::Scalar(0, 255, 255), -1);
 			cv::circle(result, cv::Point(cx, cy), 3, cv::Scalar(0, 0, 0), 1);
 		}
 	}
 
-	// ƒgƒ‰ƒbƒLƒ“ƒOˆ—
-	tracker.set(candidates); // Œó•â“_ŒQ‚ğƒgƒ‰ƒbƒJ[‚É“n‚·
-	tracker.update();        // XVˆ—iƒ‰ƒCƒtŒ¸Zj
+	// ãƒˆãƒ©ãƒƒã‚­ãƒ³ã‚°å‡¦ç†
+	tracker.set(candidates); // å€™è£œç‚¹ç¾¤ã‚’ãƒˆãƒ©ãƒƒã‚«ãƒ¼ã«æ¸¡ã™
+	tracker.update();        // æ›´æ–°å‡¦ç†ï¼ˆãƒ©ã‚¤ãƒ•æ¸›ç®—ï¼‰
 	auto tr_points = tracker.get();
 
-	// Œ‹‰Ê‰æ‘œì¬
+	// çµæœç”»åƒä½œæˆ
 	for (int i = 0; i < tr_points.size(); i++) {
 		int x = tr_points[i].getX();
 		int y = tr_points[i].getY();
@@ -337,11 +337,11 @@ void ofApp::update() {
 		cv::putText(result, ofToString(id), cv::Point(x + 15, y + 10), cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(255, 255, 255), 2);
 	}
 
-	// •\¦—p‰æ‘œ‚ğŠm’è
+	// è¡¨ç¤ºç”¨ç”»åƒã‚’ç¢ºå®š
 	ofxCv::toOf(result, view_img);
 	view_img.update();
 
-	// OSCƒƒbƒZ[ƒW‘—M
+	// OSCãƒ¡ãƒƒã‚»ãƒ¼ã‚¸é€ä¿¡
 	ofxOscMessage msg;
 	msg.setAddress(osc_address_pattern.get());
 	for (TrackingPoint pos : tr_points) {
@@ -353,18 +353,18 @@ void ofApp::update() {
 }
 
 //--------------------------------------------------------------
-// –ˆƒtƒŒ[ƒ€‚Ì•`‰æˆ—
+// æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®æç”»å‡¦ç†
 void ofApp::draw() {
 	ofBackground(50, 50, 50);
 
-	// •\¦‰æ‘œ‚Ì•`‰æ
+	// è¡¨ç¤ºç”»åƒã®æç”»
 	view_img.draw(0, 0);
 
-	// ƒrƒfƒIƒtƒ@ƒCƒ‹‚ÌUI•\¦
+	// ãƒ“ãƒ‡ã‚ªãƒ•ã‚¡ã‚¤ãƒ«æ™‚ã®UIè¡¨ç¤º
 	if (isVideoFileMode()) {
 		float y = ofGetHeight() - 100;
 
-		// lŠpŒ`‚Æü
+		// å››è§’å½¢ã¨ç·š
 		ofPushStyle();
 		ofSetColor(125);
 		ofDrawLine(0, y, ofGetWidth(), y);
@@ -372,29 +372,29 @@ void ofApp::draw() {
 		ofDrawRectangle(0, y, ofGetWidth(), 100);
 		ofPopStyle();
 
-		// ƒƒjƒ…[‚Ì•`‰æ
+		// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æç”»
 		for (auto& item : ui_items) {
 			item.second->draw();
 		}
 
-		// ƒXƒ‰ƒCƒ_[‚Ì•`‰æ
+		// ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®æç”»
 		range_slider->draw();
 		// gui_font_small.drawStringShadowed("To define loop points, press Ctrl \nwhile clicking on the seekbar", 740, ofGetHeight() - 52, ofColor(225));
 	}
 
-	// ƒgƒ‰ƒbƒLƒ“ƒO‚ª–³Œø‚É‚È‚Á‚Ä‚¢‚é‚Æ‚«‚Ì•¶š•\¦
+	// ãƒˆãƒ©ãƒƒã‚­ãƒ³ã‚°ãŒç„¡åŠ¹ã«ãªã£ã¦ã„ã‚‹ã¨ãã®æ–‡å­—è¡¨ç¤º
 	if (!tracker.isEnabled()) {
 		ofPushStyle();
 		gui_font_large.drawStringShadowed("No Tracking", 10, 28, ofColor(255, 0, 0));
 		ofPopStyle();
 	}
 
-	// ƒƒCƒ“‚ÌGUI‚Ì•\¦
+	// ãƒ¡ã‚¤ãƒ³ã®GUIã®è¡¨ç¤º
 	gui.draw();
 }
 
 //--------------------------------------------------------------
-// I—¹ˆ—
+// çµ‚äº†å‡¦ç†
 void ofApp::exit() {    
 	gui.saveToFile("settings.xml");
 	// .removeListener(this, &ofApp::);
@@ -628,10 +628,10 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button){
 	if (!isVideoFileMode()) return;
 
-	// ƒ}ƒEƒXÀ•W
+	// ãƒã‚¦ã‚¹åº§æ¨™
 	ofVec2f mouse(x, y);
 
-	// ƒ{ƒ^ƒ““ü—Í
+	// ãƒœã‚¿ãƒ³å…¥åŠ›
 	for (auto& item : ui_items) {
 		MenuItem* menu_item = item.second;
 		if (menu_item->inside(mouse)) {
@@ -660,7 +660,7 @@ void ofApp::mousePressed(int x, int y, int button){
 		}
 	}
 
-	// ƒXƒ‰ƒCƒ_[“ü—Í
+	// ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼å…¥åŠ›
 	if (range_slider->inside(mouse)) {
 		inputRangeSlider(mouse);
 		return;
@@ -670,10 +670,10 @@ void ofApp::mousePressed(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::inputRangeSlider(ofVec2f& mouse) {
 
-	// ƒ}ƒEƒX“ü—Í‚É‚æ‚Á‚ÄƒJ[ƒ\ƒ‹ˆÊ’u‚ğXV
+	// ãƒã‚¦ã‚¹å…¥åŠ›ã«ã‚ˆã£ã¦ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã‚’æ›´æ–°
 	range_slider->mouseDown(mouse);
 
-	// ƒRƒ“ƒgƒ[ƒ‹ƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç‚Ì‚ÍA”ÍˆÍw’è‚Æ‚»‚ê—p‚ÌƒV[ƒN§Œä
+	// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰ã®æ™‚ã¯ã€ç¯„å›²æŒ‡å®šã¨ãã‚Œç”¨ã®ã‚·ãƒ¼ã‚¯åˆ¶å¾¡
 	if (ofGetKeyPressed(OF_KEY_CONTROL)) {
 		range_slider->setRangeInOut(mouse.x);
 		ofVec2f range = range_slider->getSelectedRange();
@@ -685,7 +685,7 @@ void ofApp::inputRangeSlider(ofVec2f& mouse) {
 		loop_end_frame = (int)range.y;
 	}
 	else {
-		// •’Ê‚ÌƒV[ƒN§Œä
+		// æ™®é€šã®ã‚·ãƒ¼ã‚¯åˆ¶å¾¡
 		video.setFrame(loop_start_frame + (int)(range_slider->getValue() * (loop_end_frame - loop_start_frame)));
 	}
 }
@@ -701,7 +701,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-	// ƒrƒfƒIƒtƒ@ƒCƒ‹ƒ‚[ƒh‚ÉAƒrƒfƒI‘€ìUI‚ğì‚è’¼‚·
+	// ãƒ“ãƒ‡ã‚ªãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ¼ãƒ‰æ™‚ã«ã€ãƒ“ãƒ‡ã‚ªæ“ä½œUIã‚’ä½œã‚Šç›´ã™
 	if (isVideoFileMode()) {
 		releaseVideoUI();
 		setupVideoUI();
@@ -733,7 +733,7 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
 //--------------------------------------------------------------
-// •¶š—ñ‚ğ•ªŠ„‚·‚éŠÖ”
+// æ–‡å­—åˆ—ã‚’åˆ†å‰²ã™ã‚‹é–¢æ•°
 vector<string> split(const string& str, char delim) {
 	auto i = 0;
 	vector<string> list;
@@ -748,19 +748,19 @@ vector<string> split(const string& str, char delim) {
 }
 
 //--------------------------------------------------------------
-// •¶š—ñ‚ª”’l‚©‚ğ”»’è‚·‚éŠÖ”
+// æ–‡å­—åˆ—ãŒæ•°å€¤ã‹ã‚’åˆ¤å®šã™ã‚‹é–¢æ•°
 bool isNumber(const string& str) {
 	return str.find_first_not_of("0123456789") == string::npos;
 }
 
 //--------------------------------------------------------------
-// IPƒAƒhƒŒƒX”»’èŠÖ”
+// IPã‚¢ãƒ‰ãƒ¬ã‚¹åˆ¤å®šé–¢æ•°
 bool isIpAddress(const string& value) {
 
-	// localhost ‚àIPƒAƒhƒŒƒX‚ÆŒ©‚È‚·
+	// localhost ã‚‚IPã‚¢ãƒ‰ãƒ¬ã‚¹ã¨è¦‹ãªã™
 	if (value == "localhost") return true;
 
-	// '.'‚Å•ªŠ„‚µA—v‘f‚ª‚SŒÂ‚Å‚ ‚è, Še—v‘f‚ª”ÍˆÍ“à‚Ì”’l‚Å‚ ‚ê‚ÎIPƒAƒhƒŒƒX‚Æ”»’è
+	// '.'ã§åˆ†å‰²ã—ã€è¦ç´ ãŒï¼”å€‹ã§ã‚ã‚Š, å„è¦ç´ ãŒç¯„å›²å†…ã®æ•°å€¤ã§ã‚ã‚Œã°IPã‚¢ãƒ‰ãƒ¬ã‚¹ã¨åˆ¤å®š
 	vector<string> params = split(value, '.');
 	if (params.size() != 4) {
 		return false;

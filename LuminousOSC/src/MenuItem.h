@@ -1,6 +1,6 @@
-// ƒIƒŠƒWƒiƒ‹‚ÌƒR[ƒhiofxHPVPlayer‚ÌƒTƒ“ƒvƒ‹ƒR[ƒh‚æ‚èj
+// ã‚ªãƒªã‚¸ãƒŠãƒ«ã®ã‚³ãƒ¼ãƒ‰ï¼ˆofxHPVPlayerã®ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ¼ãƒ‰ã‚ˆã‚Šï¼‰
 // https://github.com/vjacob/ofxHPVPlayer/blob/master/example-controls/src/MenuItem.h
-// “Á‚É•ÏX‰ÓŠ‚È‚µ
+// ç‰¹ã«å¤‰æ›´ç®‡æ‰€ãªã—
 
 #ifndef MenuItem_h
 #define MenuItem_h
@@ -77,7 +77,7 @@ public:
     void select()
     {
         b_selected = !b_selected;
-        // b_selected = true;      // ƒgƒOƒ‹‚æ‚è‚±‚Á‚¿‚ª‚¢‚¢‹C‚à‚·‚é‚ªA‚Æ‚è‚ ‚¦‚¸•Û—¯B
+        // b_selected = true;      // ãƒˆã‚°ãƒ«ã‚ˆã‚Šã“ã£ã¡ãŒã„ã„æ°—ã‚‚ã™ã‚‹ãŒã€ã¨ã‚Šã‚ãˆãšä¿ç•™ã€‚
         b_hovered = !b_selected;
     }
     

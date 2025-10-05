@@ -1,6 +1,6 @@
-// �I���W�i���̃R�[�h�iofxHPVPlayer�̃T���v���R�[�h���j
+// オリジナルのコード（ofxHPVPlayerのサンプルコードより）
 // https://github.com/vjacob/ofxHPVPlayer/blob/master/example-controls/src/ofTrueTypeFontExt.h
-// ���ɕύX�ӏ��Ȃ�
+// 特に変更箇所なし
 
 #pragma once
 

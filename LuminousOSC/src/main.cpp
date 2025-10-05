@@ -4,8 +4,8 @@
 #ifdef TARGET_WIN32
 // --------------------------------------------------------------------------------------------------
 // for Windows
-// �����J�[�̐ݒ�i���ׂẴI�v�V�����j�ŃT�u�V�X�e����
-// �R���\�[������Windows�ɕύX���邱�ƁB
+// リンカーの設定（すべてのオプション）でサブシステムを
+// コンソールからWindowsに変更すること。
 
 #include "../resource.h"
 
@@ -14,7 +14,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ofSetupOpenGL(980, 480, OF_WINDOW);	// <-------- setup the GL context
 	ofSetWindowTitle("LuminousOSC");
 
-	// �E�B���h�E�ɕ\�������A�C�R���̕ύX
+	// ウィンドウに表示されるアイコンの変更
 	HWND hwnd = ofGetWin32Window();
 	HICON hMyIcon = LoadIcon(hInstance, MAKEINTRESOURCE(MAIN_ICON));
 	SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)hMyIcon);

@@ -133,7 +133,7 @@ class ofApp : public ofBaseApp {
 		ofParameter<string> osc_port;
 		ofParameter<string> osc_address_pattern;
 
-		// 変更フラグ
+		// 螟画峩繝輔Λ繧ｰ
 		bool bRequestChangeOSC = false;
 		bool bRequestChangeCamera = false;
 		bool bRequestChangeMaxPoints = false;
@@ -142,7 +142,7 @@ class ofApp : public ofBaseApp {
 		bool bRequestSwitchToCamera = false;
 		bool bMainUIInitializing = true;
 
-		// 変更前のパラメータ
+		// 螟画峩蜑阪�ｮ繝代Λ繝｡繝ｼ繧ｿ
 		string prev_cam_id;
 		string prev_cam_width;
 		string prev_cam_height;

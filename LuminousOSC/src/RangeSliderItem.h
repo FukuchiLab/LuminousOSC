@@ -1,11 +1,11 @@
-// �I���W�i���̃R�[�h�iofxHPVPlayer�̃T���v���R�[�h���j
+// オリジナルのコード（ofxHPVPlayerのサンプルコードより）
 // https://github.com/vjacob/ofxHPVPlayer/blob/master/example-controls/src/RangeSliderItem.h
 // 
-// �ύX�_�F
-// MIN, MAX ���g���Ă���ӏ���std::min(), std::max() �ɒu�������B
-// �͈͂������I�����W�F�̑т��A�V�[�N�o�[�̔w�ʂɗ���悤�ɏC���B
-// setRangeInOut()��ǉ��B���͂��玩���I�ɊJ�n�ʒu�܂��͏I���ʒu��ݒ�B
-// setSelectedRange()��ǉ��B�����W��0�`1.0�Œ��ڐݒ�B
+// 変更点：
+// MIN, MAX を使っている箇所をstd::min(), std::max() に置き換え。
+// 範囲を示すオレンジ色の帯が、シークバーの背面に来るように修正。
+// setRangeInOut()を追加。入力から自動的に開始位置または終了位置を設定。
+// setSelectedRange()を追加。レンジを0〜1.0で直接設定。
 
 
 #ifndef RangeSliderItem_h
@@ -113,7 +113,7 @@ public:
     }
 
     void setRangeInOut(float _input) {
-        // �͈͂̂����A�������O�����N���b�N����ƁA�J�n�ʒu��ݒ�B����Ȃ�I���ʒu��ݒ�B
+        // 範囲のうち、中央より前方をクリックすると、開始位置を設定。後方なら終了位置を設定。
         float pos = (_input - hit_zone.x) / hit_zone.width;
         if (pos < (range_in/2 + range_out/2) ) {
             setRangeIn(_input);
@@ -162,8 +162,8 @@ public:
         return ofVec2f(range_in, range_out);
     }
 
-    // �ǉ��������\�b�h
-    // �s�N�Z�����W�ł͂Ȃ��A0�`1.0�͈̔͂Œl���w��
+    // 追加したメソッド
+    // ピクセル座標ではなく、0〜1.0の範囲で値を指定
     void setSelectedRange(float in, float out) {
         range_in = in;
         range_out = out;
